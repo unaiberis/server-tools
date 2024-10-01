@@ -5,7 +5,7 @@
         <field name="sequence" eval="10" />
         <!-- attach to Settings -> Technical -->
         <field name="parent_id" ref="base.menu_custom" />
-        <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]" />
+        <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
     </record>
 
     <record model="ir.ui.menu" id="menu_purge_modules">
@@ -68,6 +68,21 @@
         <field name="name">Purge obsolete properties</field>
         <field name="sequence" eval="80" />
         <field name="action" ref="action_purge_property" />
+        <field name="parent_id" ref="menu_database_cleanup" />
+    </record>
+
+    <!-- Nuevos menús -->
+    <record model="ir.ui.menu" id="menu_purge_views">
+        <field name="name">Purge obsolete views</field>
+        <field name="sequence" eval="90" />
+        <field name="action" ref="action_purge_ui_views" /> <!-- Asegúrate de que la acción esté definida -->
+        <field name="parent_id" ref="menu_database_cleanup" />
+    </record>
+
+    <record model="ir.ui.menu" id="menu_purge_assets">
+        <field name="name">Purge assets</field>
+        <field name="sequence" eval="110" />
+        <field name="action" ref="action_purge_assets" />
         <field name="parent_id" ref="menu_database_cleanup" />
     </record>
 </odoo>
